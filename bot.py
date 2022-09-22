@@ -2,7 +2,9 @@ import discord
 import random
 import requests
 
+
 TOKEN = 'HIDDEN'
+
 
 client = discord.Client(intents=discord.Intents.all())
 
