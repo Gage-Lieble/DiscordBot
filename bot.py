@@ -2,7 +2,7 @@ import discord
 import random
 import requests
 
-TOKEN = 'MTAyMjMxNjg5NjQ3NDg5MDMzMQ.GLWWxf.eMqAlqyQJ9qdsk6FqbXwtCgzwty2bf-ySavdwI'
+TOKEN = 'TokenPlaceHolder'
 
 client = discord.Client(intents=discord.Intents.all())
 
