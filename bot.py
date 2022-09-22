@@ -2,13 +2,20 @@ import discord
 import random
 import requests
 
-TOKEN = 'MTAyMjMxNjg5NjQ3NDg5MDMzMQ.GLWWxf.eMqAlqyQJ9qdsk6FqbXwtCgzwty2bf-ySavdwI'
+TOKEN = 'HIDDEN'
 
 client = discord.Client(intents=discord.Intents.all())
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
+@client.event
+async def on_member_join(member):
+    guild = client.get_guild(1022317834677784678)
+    channel = guild.get_channel(1022317834677784681)
+    await channel.send(f'Welcome {member.mention}! Type "!commands" to see avaliable the functions. ')
+    
 
 @client.event
 async def on_message(message):
@@ -19,7 +26,7 @@ async def on_message(message):
 
     if message.author == client.user:
         return
-
+    
     if channel == 'Laborone-Bot-server':
         um = user_msg.lower()
         if um == '!commands':
