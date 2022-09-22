@@ -8,5 +8,6 @@ This Discord Bot is built using python and Discords bot API. This bot has multip
 #### Base/Crucial Features:
 - API Calls
 - Emoji/Gif generator
+- Greetings
 - ...
 
