@@ -39,11 +39,15 @@ async def on_message(message):
             2. !bye 
             3. !dad joke
             4. !bitcoin
+            5. !pic
+            6. !kanye
 
             -EMOJIS-GIFS 
             1. !lmao 
             2. !rage 
             3. !gasp
+            4. !cry
+            5. !cringe
             ''')
             return
 
@@ -75,20 +79,44 @@ async def on_message(message):
             await message.channel.send(f'Bitcoin is priced at {currency}')
             return
 
+        elif um == '!eth':
+    
+            response = requests.get( f"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd", headers={
+                'Accept': 'application/json'
+            })
+            output = response.json()['ethereum']['usd']
+            currency = "${:,.2f}".format(output)
+            await message.channel.send(f'Ethereum is priced at {currency}')
+            return
+
         elif um == '!whatisthebestwebsiteever':
             await message.channel.send(f'WOAH {username}! you found a hidden command 🎉. The best website ever is https://www.gagelieble.com/')
             await message.channel.send(f'https://www.gagelieble.com/static/portfolio/imgs/gagehead.png')
             return
 
-        # elif '!html' in um:
-        #     site = um.split(' ')[1]
-        #     print(site)
-        #     response = re.get(site)
-        #     html = response.text
-        #     print(html)
-        #     await message.channel.send(f'fds')
-        #     return
+        elif um == '!pic':
+            await message.channel.send(f'https://picsum.photos/id/{random.randint(0,999)}/200/200')
+            return
 
+        elif um == '!ye' or um == '!kanye':
+            response = requests.get( f"https://api.kanye.rest", headers={
+                'Accept': 'application/json'
+            })
+            
+            search_result = response.json()['quote']
+            await message.channel.send(f'{search_result} - Ye West')
+            return
+
+        elif um == '!theft':
+            response = requests.get( f"https://uinames.com/api/", headers={
+                'Accept': 'application/json'
+            })
+            
+            search_result = response.json()
+            await message.channel.send(f'{search_result}')
+            return
+         
+        
 
         # EMOJI GIFS
         elif um == '!lmao':
@@ -105,6 +133,12 @@ async def on_message(message):
             await message.channel.send(f'{username} reacted: (gasp)')
             await message.channel.send(f'https://media.giphy.com/media/QE8hREXIgRXeo/giphy.gif')
             return
-
-        
+        elif um == '!cry':
+            await message.channel.send(f'{username} reacted: (cry)')
+            await message.channel.send(f'https://media.giphy.com/media/KDRv3QggAjyo/giphy.gif')
+            return
+        elif um == '!cringe':
+            await message.channel.send(f'{username} reacted: (cringe)')
+            await message.channel.send(f'https://media.giphy.com/media/3otPoPoCbPjSP4ktGw/giphy.gif')
+            return
 client.run(TOKEN)
