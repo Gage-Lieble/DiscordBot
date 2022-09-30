@@ -9,5 +9,6 @@ This Discord Bot is built using python and Discords bot API. Neobot has multiple
 - API Calls
 - Emoji/Gif generator
 - Greetings
+- Crypto Price Tracker
 - ...
 
