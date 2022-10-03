@@ -5,7 +5,7 @@
 ## Project Outline
 This Discord Bot is built using python and Discords bot API. Neobot has multiple functions that occur based on what command the user sends in the discord channel.
 
-#### Base/Crucial Features:
+#### Features:
 - API Calls
 - Emoji/Gif generator
 - Greetings
